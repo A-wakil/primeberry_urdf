@@ -152,13 +152,13 @@
   <link name="steering_sphere">
     <visual>
       <geometry>
-        <sphere radius="0.05"/>
+        <sphere radius="0.025"/>
       </geometry>
       <material name="blue"/>
     </visual>
     <collision>
       <geometry>
-        <sphere radius="0.05"/>
+        <sphere radius="0.025"/>
       </geometry>
     </collision>
     <inertial>
@@ -171,14 +171,14 @@
   <joint name="sphere_to_base_joint" type="fixed">
     <parent link="base_link"/>
     <child link="steering_sphere"/>
-    <origin xyz="0.2 0 0.05"/> <!-- Position the sphere above the base link -->
+    <origin xyz="0.225 0 0"/>
   </joint>
 
   <!-- Joint connecting the sphere to the steering mechanism -->
   <joint name="sphere_to_steering_joint" type="revolute">
     <parent link="steering_sphere"/>
     <child link="front_wheel_steering_link"/>
-    <origin xyz="0 0 -0.05"/> <!-- Position the sphere below the steering mechanism -->
+    <origin xyz="0.075 0 0"/> <!-- Position the sphere below the steering mechanism -->
     <axis xyz="0 0 1"/> <!-- Define the axis of rotation -->
     <limit lower="-1.57" upper="1.57" effort="1.0" velocity="1.0"/> <!-- Define the limits, effort, and velocity -->
   </joint>
