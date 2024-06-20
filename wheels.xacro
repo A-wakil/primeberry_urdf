@@ -5,6 +5,22 @@
     <xacro:property name="wheel_mass" value="0.1"/>
     <xacro:property name="wheel_inertia" value="0.001 0.0 0.0 0.001 0.0 0.001"/>
 
+    <xacro:property name="blx" value="-0.2"/>
+    <xacro:property name="bly" value="-0.125"/>
+    <xacro:property name="blz" value="0"/>
+
+    <xacro:property name="brx" value="-0.2"/>
+    <xacro:property name="bry" value="0.125"/>
+    <xacro:property name="brz" value="0"/>
+
+    <xacro:property name="flx" value="0"/>
+    <xacro:property name="fly" value="-0.125"/>
+    <xacro:property name="flz" value="0"/>
+
+    <xacro:property name="frx" value="0"/>
+    <xacro:property name="fry" value="-0.125"/>
+    <xacro:property name="frz" value="0"/>
+
     <link name="back_left_wheel">
       <visual>
         <origin rpy="0.0 ${pi/2} ${pi/2}"/>
@@ -29,7 +45,7 @@
     <joint name="back_left_wheel_joint" type="continuous">
       <parent link="base_link"/>
       <child link="back_left_wheel"/>
-      <origin xyz="${x} ${y} ${z}"/>
+      <origin xyz="${blx} ${bly} ${blz}"/>
       <axis xyz="0 1 0"/>
     </joint>
 
@@ -57,7 +73,7 @@
     <joint name="back_right_wheel_joint" type="continuous">
       <parent link="base_link"/>
       <child link="back_right_wheel"/>
-      <origin xyz="${x} ${y} ${z}"/>
+      <origin xyz="${brx} ${bry} ${brz}"/>
       <axis xyz="0 1 0"/>
     </joint>
 
@@ -83,9 +99,9 @@
     </link>
 
     <joint name="front_left_wheel_joint" type="continuous">
-      <parent link="base_link"/>
+      <parent link="front_wheel_steering_link"/>
       <child link="front_left_wheel"/>
-      <origin xyz="${x} ${y} ${z}"/>
+      <origin xyz="${flx} ${fly} ${flz}"/>
       <axis xyz="0 1 0"/>
     </joint>
 
@@ -111,9 +127,9 @@
     </link>
 
     <joint name="front_right_wheel_joint" type="continuous">
-      <parent link="base_link"/>
+      <parent link="front_wheel_steering_link"/>
       <child link="front_right_wheel"/>
-      <origin xyz="${x} ${y} ${z}"/>
+      <origin xyz="${frx} ${fry} ${frz}"/>
       <axis xyz="0 1 0"/>
     </joint>
 
