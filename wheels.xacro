@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<xacro:macro name="wheel_macro" params="name x y z">
+  <xacro:property name="wheel_radius" value="0.075"/>
+  <xacro:property name="wheel_length" value="0.05"/>
+  <xacro:property name="wheel_mass" value="0.1"/>
+  <xacro:property name="wheel_inertia" value="0.001 0.0 0.0 0.001 0.0 0.001"/>
+
+  <link name="${name}">
+    <visual>
+      <origin rpy="0.0 ${pi/2} ${pi/2}"/>
+      <geometry>
+        <cylinder length="${wheel_length}" radius="${wheel_radius}"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <collision>
+      <origin rpy="0.0 ${pi/2} ${pi/2}"/>
+      <geometry>
+        <cylinder length="${wheel_length}" radius="${wheel_radius}"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="${wheel_mass}"/>
+      <inertia ixx="${wheel_inertia.split(' ')[0]}" ixy="${wheel_inertia.split(' ')[1]}" ixz="${wheel_inertia.split(' ')[2]}" 
+              iyy="${wheel_inertia.split(' ')[3]}" iyz="${wheel_inertia.split(' ')[4]}" izz="${wheel_inertia.split(' ')[5]}"/>
+    </inertial>
+  </link>
+
+  <joint name="${name}_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="${name}"/>
+    <origin xyz="${x} ${y} ${z}"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+</xacro:macro>
+
+<wheel_macro name="back_left_wheel" x="-0.2" y="-0.125" z="0"/>
+<wheel_macro name="back_right_wheel" x="-0.2" y="0.125" z="0"/>
+<wheel_macro name="front_left_wheel" x="0.2" y="-0.125" z="0"/>
+<wheel_macro name="front_right_wheel" x="0.2" y="0.125" z="0"/>
