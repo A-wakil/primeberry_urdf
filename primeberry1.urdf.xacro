@@ -180,7 +180,7 @@
     <child link="front_wheel_steering_link"/>
     <origin xyz="0.075 0 0"/> <!-- Position the sphere below the steering mechanism -->
     <axis xyz="0 0 1"/> <!-- Define the axis of rotation -->
-    <limit lower="-1.57" upper="1.57" effort="1.0" velocity="1.0"/> <!-- Define the limits, effort, and velocity -->
+    <limit lower="-0.75" upper="0.75" effort="1.0" velocity="1.0"/> <!-- Define the limits, effort, and velocity -->
   </joint>
 
 
