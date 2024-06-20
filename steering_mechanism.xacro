@@ -1,4 +1,5 @@
 <?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 <xacro:macro name="steering_mechanism_macro">
   <xacro:property name="sphere_radius" value="0.025"/>
   <xacro:property name="sphere_mass" value="0.05"/>
@@ -77,4 +78,5 @@
     <child link="front_right_wheel"/>
     <origin xyz="0 0.125 0"/>
     <axis xyz="0 1 0"/>
+  </joint>
  
