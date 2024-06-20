@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <xacro:macro name="base_link">
     <xacro:property name="base_size" value="0.4 0.2 0.1"/>
     <xacro:property name="base_mass" value="1.0"/>
     <xacro:property name="base_inertia" value="0.01 0.0 0.0 0.01 0.0 0.01"/>
@@ -23,7 +22,4 @@
                 iyy="${base_inertia.split(' ')[3]}" iyz="${base_inertia.split(' ')[4]}" izz="${base_inertia.split(' ')[5]}"/>
       </inertial>
     </link>
-  </xacro:macro>
-
-  <base_link/>
 </robot>
