@@ -22,4 +22,7 @@
                 iyy="${base_inertia.split(' ')[3]}" iyz="${base_inertia.split(' ')[4]}" izz="${base_inertia.split(' ')[5]}"/>
       </inertial>
     </link>
+      <gazebo reference="base_link">
+    <material>Gazebo/Gray</material>
+  </gazebo>
 </robot>
